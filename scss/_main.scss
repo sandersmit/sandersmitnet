@@ -1,5 +1,6 @@
 html{
   font-size:100%;
+  font-family: "Helvetica" ,"arial" ,"Times" , sans-serif;
 }
 
 body {
@@ -33,6 +34,7 @@ body {
  grid-row: 2/3;
 }
 .module {
+  font-size:2em;
   /* Demo-Specific Styles */
   background: #eaeaea;
   display: flex;
