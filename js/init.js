@@ -105,7 +105,7 @@ function fillOrderSelection(arrayIds, snapshot) {
     arrayIds.forEach(function(data) {
          let newoption = document.createElement("option");
         newoption.value = arrayIds[OrderID];
-        newoption.textContent = "bestelling" + adresArray[OrderID];
+        newoption.textContent = "bestelling: " + adresArray[OrderID];
         console.log("testing: "+OrderID);
          document.querySelector(".beschikbaarlopendebestellingen").appendChild(newoption);
         OrderID++;
