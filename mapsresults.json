@@ -1,0 +1,22 @@
+{
+   "destination_addresses" : [ "Amsterdam, Nederland" ],
+   "origin_addresses" : [ "Hoorn, Nederland" ],
+   "rows" : [
+      {
+         "elements" : [
+            {
+               "distance" : {
+                  "text" : "29,2 mijl",
+                  "value" : 47034
+               },
+               "duration" : {
+                  "text" : "41 min.",
+                  "value" : 2457
+               },
+               "status" : "OK"
+            }
+         ]
+      }
+   ],
+   "status" : "OK"
+}

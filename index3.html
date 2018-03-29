@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="css/style.css"> </head>
+
+<body>
+    <!-- Replace the value of the key parameter with your own API key. -->
+    <main>
+        <button class="testingbtn">testing</button>
+        <div class="topContainer">
+            <div class="logo"> <img src="img/logo.jpg"> </div>
+            <nav>
+                <ul>
+                    <li> <a href="">Aanmelden platform</a> </li>
+                    <li> <a href="">About</a> </li>
+                    <li> <a href="">Login</a> </li>
+                </ul>
+            </nav>
+        </div>
+        <header class="grid top">
+            <section class="module0">
+                <h3>about</h3>
+                <p>text
+                    <!-- In tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum niet zomaar willekeurige. -->
+                </p>
+                <div class="item"> <img src="img/person.jpeg"> </div>
+            </section>
+            <section class="module1">
+                <div>
+                    <h3>Aanmelden</h3>
+                    <form class="boilerform" action="" method="post">
+                        <div class="c-signup">
+                            <div class="c-signup__field">
+                                <label for="first_name" class="c-label">First name</label>
+                                <input type="text" name="first_name" class="c-input-field" /> </div>
+                            <div class="c-signup__field">
+                                <label for="last_name" class="c-label">Last name</label>
+                                <input type="text" name="last_name" class="c-input-field" /> </div>
+                            <div class="c-signup__field c-signup__field--fill">
+                                <label for="email" class="c-label">Email address</label>
+                                <input type="email" name="email" class="c-input-field" /> </div>
+                            <div class="c-signup__field c-signup__field--fill">
+                                <label for="password" class="c-label">Password</label>
+                                <input type="password" name="password" class="c-input-field" /> </div>
+                            <div class="c-signup__field c-signup__field--fill">
+                                <label class="c-label" for="fav_color">What's your favourite color?</label>
+                                <div class="c-select-field">
+                                    <select name="fav_color" class="c-select-field__menu">
+                                        <option>Please select an option</option>
+                                        <option value="Red">Red</option>
+                                        <option value="Orange">Orange</option>
+                                        <option value="Yellow">Yellow</option>
+                                        <option value="Green">Green</option>
+                                        <option value="Blue">Blue</option>
+                                        <option value="Purple">Purple</option>
+                                    </select> <span class="c-select-field__decor" aria-hidden="true" role="presentation">&dtrif;</span> </div>
+                            </div>
+                            <div class="c-signup__button">
+                                <button class="c-button" type="submit">Signup</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <h3>Inloggen</h3>
+                    <form class="boilerform" action="" method="post">
+                        <div class="c-signup">
+                            <div class="c-signup__field c-signup__field--fill">
+                                <label for="email" class="c-label">Email address</label>
+                                <input type="email" name="email" class="c-input-field" /> </div>
+                            <div class="c-signup__field c-signup__field--fill">
+                                <label for="password" class="c-label">Password</label>
+                                <input type="password" name="password" class="c-input-field" /> </div>
+                            <div class="c-signup__button">
+                                <button class="c-button" type="submit">login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <section class="module2">
+                <h3>Het werkt zo!</h3> concept </section>
+            <section class="module3">
+                <h3>Media</h3> blog | fotos | videos
+                <!-- <img src="img/pexels-photo-265678.jpeg"> --></section>
+        </header>
+        <div class="grid">
+            <h3>App</h3> instructies
+            <section class="module4">
+                <div class="instructie">
+                    <h5>stap 1</h5> </div>
+                <div class="instructie">
+                    <h5>stap 2</h5> </div>
+                <div class="instructie">
+                    <h5>stap 3</h5> </div>
+                <div class="instructie">
+                    <h5>stap 5</h5> </div>
+            </section>
+        </div>
+        <div class="grid">
+            <h3>Zoek voedselbanken Nederland</h3>
+            <section class="module5">
+                <div> <img src="img/nederland.png"> </div>
+                <div>
+                    <form class="boilerform" action="" method="post">
+                        <div class="c-signup">
+                            <div class="c-signup__field c-signup__field--fill">
+                                <label for="email" class="c-label">adres1</label>
+                                <input type="email" name="email" class="c-input-field" />
+                                <label for="email" class="c-label">adres2</label>
+                                <input type="email" name="email" class="c-input-field" /> </div>
+                            <div class="c-signup__field c-signup__field--fill">
+                                <div class="c-signup__button">
+                                    <button class="c-button" type="submit">Zoek</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <h4>zoek result</h4>
+                    <ul>
+                        <li>voedselbank naam</li>
+                        <li>adres</li>
+                        <li>telefoon</li>
+                        <li>email</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <div class="grid">
+            <h3>maping actieve bezorgers</h3>
+            <section class="module6">
+                <div id="map"> </div>
+                <div>
+                        <div class="block">
+                        <h4>Voedsel gever</h4>
+                        
+                            <h5>selecteer een afstands regio <i class="fas fa-map"></i></h5>
+                            <div>
+                                <select class="straal">
+                                    <option value="1">1km</option>
+                                    <option value="2">2km</option>
+                                    <option value="3">3km</option>
+                                    <option value="4">4km</option>
+                                </select>
+                            </div>
+                            <h5>met welk vervoer wilt u iets brengen om mee te geven?</h5>
+                            <ul class="vervoer">
+                                <li>
+                                    <label for="radio1" class="btn btn-sm btn-success">
+                                        <input type="radio" name="mergeType" id="radio1" class="vervoerselectie" value="walking">lopend <i class="fas fa-blind"></i></label>
+                                </li>
+                                <li>
+                                    <label for="radio2" class="btn btn-sm btn-success">
+                                        <input type="radio" name="mergeType" id="radio2" checked="checked" class="vervoerselectie" value="bicycling">fiets <i class="fas fa-bicycle"></i></label>
+                                </li>
+                                <li>
+                                    <label for="radio3" class="btn btn-sm btn-success">
+                                        <input type="radio" name="mergeType" id="radio3" class="vervoerselectie" value="driving">auto<i class="fas fa-car"></i></label>
+                                </li>
+                            </ul>
+                            <h4>Bij welk adres wilt u iets meegeven?</h4>
+                            <ul class="adresoverzicht"> </ul>
+                            <div class="resultIcon">
+                                <div> </div>
+                            </div>
+                            <div class="selectionresult">
+                                <h4>zoek result</h4>
+                                <ul class="statusList">
+                                    <li><i class="fas fa-road"></i> afstand: <span class="afstand"></span></li>
+                                    <li><i class="far fa-clock"></i> tijdsduur: <span class="tijd"></span></li>
+                                    <li>naam bezorger</li>
+                                    <li>naam restaurant</li>
+                                    <li><i class="fas fa-phone"></i> telefoon</li>
+                                    <li><i class="far fa-clipboard"></i> actief</li>
+                                    <li><i class="fas fa-thermometer-full"></i> status vol of ruimte beschikbaar</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <h4>Resturant moet niewe bezorgadressen invoeren</h4>
+                            <div class="c-signup__field c-signup__field--fill">
+                                <input type="text" name="invoeradres" placeholder="plaats, straat huisnummer" class="input invoeradres" /> </div>
+                            <div class="c-signup__field c-signup__field--fill">
+                                <div class="c-signup__button">
+                                    <button class="invoeren">invoeren</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <h4>Admin Handmatige bezorgadres check</h4>
+                            <div class="c-signup__field c-signup__field--fill">
+                                <label for="text" class="c-label">reastaurtant adres</label>
+                                <input type="text" name="adres1" placeholder="bezorger plaatsnaam" class="adres1" />
+                                <label for="text" class="c-label">bezorgadres</label>
+                                <input type="text" name="adres2" placeholder="bezorgadres" class="adres2" /> </div>
+                            <div class="c-signup__field c-signup__field--fill">
+                                <div class="c-signup__button">
+                                    <button class="fetchingBtn">bekijk afstand en route tussen 2 locaties</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <h4>Geo-location - Admin locatie check</h4>
+                            <div class="c-signup__field c-signup__field--fill">
+                                <label for="text" class="c-label">Custom bezorgadres</label>
+                                <input type="text" name="adres1" placeholder="bezorger plaatsnaam" class="adres3" /> </div>
+                            <div class="c-signup__field c-signup__field--fill">
+                                <div class="c-signup__button">
+                                    <button class="fetchingBtn2">bekijk afstand en route vanaf huidig adres</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <h4 class="adresstitle" id="object">totaal bezorgers in actief</h4>
+                            <ul>
+                                <li>Totaal aantal bezorgers: number</li>
+                            </ul>
+                        </div>
+                       <div class="block">
+                            <h4>Admin voor courier/bezorger</h4>
+                            <h5>geef aan of er ruimte is om iets mee te nemen</h5>
+                            <ul class="beschikbaarheid">
+                                <li>
+                                    <label for="radio1" class="btn btn-sm btn-success">
+                                        <input type="radio" name="beschikbaar" id="radio1" class="beschikbaarheidselectie" value="leeg">leeg <i class="fas fa-thermometer-empty"></i></label>
+                                    <label for="radio2" class="btn btn-sm btn-success">
+                                        <input type="radio" name="beschikbaar" id="radio2" checked="checked" class="beschikbaarheidselectie" value="vol">vol <i class="fas fa-thermometer-full"></i></label>
+                                </li>
+                            </ul>
+                            <h5>Is de bestelling nog actief?</h5>
+                            <ul class="beschikbaarheid">
+                                <li>
+                                    <label for="radio1" class="btn btn-sm btn-success">
+                                        <input type="radio" name="actief" id="radio1" class="actiefselectie" value="afgerond"> bestelling afgerond <i class="fas fa-clipboard-check"></i></label>
+                                    <label for="radio2" class="btn btn-sm btn-success">
+                                        <input type="radio" name="actief" id="radio2" checked="checked" class="actiefselectie" value="actief">actief <i class="far fa-clipboard"></i></label>
+                                </li>
+                            </ul>
+                            
+                            <!-- <div class="c-signup__button">
+                                <button class="fetchingBtn2">update status bezorging</button>
+                            </div> -->
+                        </div>
+                     </div>
+            </section>
+        </div>
+        <div class="grid">
+            <h3>contact</h3>
+            <form class="boilerform" action="" method="post">
+                <fieldset class="c-form">
+                    <legend class="c-form__heading">Contact form</legend>
+                    <div class="c-form__row">
+                        <label for="name" class="c-label">Name</label>
+                        <input type="text" name="name" class="c-input-field" value="" autocorrect="off" required /> </div>
+                    <div class="c-form__row">
+                        <label for="email" class="c-label">Email</label>
+                        <input type="email" name="email" autocapitalize="none" autocorrect="off" class="c-input-field" required /> </div>
+                    <div class="c-form__row">
+                        <label for="message" class="c-label">Your message</label>
+                        <textarea name="message" class="c-input-field c-input-field--multiline" rows="10"></textarea>
+                    </div>
+                    <div class="c-form__row">
+                        <button class="c-button" type="submit">Submit</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <h5>
+                copyright 2018
+            </h5>
+        <nav>
+            <ul>
+                <li> <a href="">Contact</a> </li>
+                <li> <a href="">About</a> </li>
+                <li> <a href="">Voorwaarden</a> </li>
+                <li> <a href="">niews</a> </li>
+                <li> <a href="">Extra's</a> </li>
+            </ul>
+        </nav>
+    </footer>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT5lbfVyUI0LqCbhgMJqpsNXcDXqKk2QY"></script>
+    <script type="text/javascript" src="js/init.js"></script>
+</body>
+
+</html>

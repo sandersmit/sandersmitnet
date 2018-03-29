@@ -3,18 +3,166 @@
 
 <head>
     <title></title>
-    <link rel="stylesheet" href="css/style.css"> </head>
-
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
 <body>
-    <div class="grid">
-        <section>
-            <div class="module">1</div>
-            <div class="module">2</div>
-            <div class="moduleB">moduleB</div>
-            <div class="module">4</div>
-            <div class="module">5</div>
+    <!-- Replace the value of the key parameter with your own API key. -->
+    <main>
+        
+        <div class="grid">
+            <section class="module5">
+                <div id="map"> </div>
+            </section>
+            <section class="module6">
+                <div class="admin">
+                    <div class="block">
+                        <h4>Buurtbewoner app pannel</h4>
+                        <h5>Selecteer een straal <i class="fas fa-map"></i></h5>
+                        <div>
+                            <select class="straal">
+                                <option value="1">1km</option>
+                                <option value="2">2km</option>
+                                <option value="3">3km</option>
+                                <option value="4">4km</option>
+                            </select>
+                        </div>
+                        <h5>Met welk vervoer wilt u iets brengen om mee te geven?</h5>
+                        <ul class="vervoer">
+                            <li>
+                                <label for="radio1" class="btn btn-sm btn-success">
+                                    <input type="radio" name="mergeType" id="radio1" class="vervoerselectie" value="walking">lopend <i class="fas fa-blind"></i></label>
+                            </li>
+                            <li>
+                                <label for="radio2" class="btn btn-sm btn-success">
+                                    <input type="radio" name="mergeType" id="radio2" checked="checked" class="vervoerselectie" value="bicycling">fiets <i class="fas fa-bicycle"></i></label>
+                            </li>
+                            <li>
+                                <label for="radio3" class="btn btn-sm btn-success">
+                                    <input type="radio" name="mergeType" id="radio3" class="vervoerselectie" value="driving">auto <i class="fas fa-car"></i></label>
+                            </li>
+                        </ul>
+                        <h4>Bij welk adres wilt u iets meegeven?</h4>
+                        <ul class="adresoverzicht"> </ul>
+                        <div class="c-signup__field c-signup__field--fill">
+                            <div class="c-signup__button">
+                                <button class="bekijk">Bekijk de status van de bezorging</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <h4 class="panel">Resturant/peeves koppelt bezorgadressen met de app</h4>
+                        <div class="c-signup__field c-signup__field--fill">
+                            <input type="text" name="invoeradres" placeholder="straat + huisnummer, plaats" class="input invoeradres" /> </div>
+                        <div class="c-signup__field c-signup__field--fill">
+                            <div class="c-signup__button">
+                                <button class="invoeren">Invoeren</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <h4>Admin Handmatige bezorgadres check</h4>
+                        <div class="c-signup__field c-signup__field--fill">
+                            <label for="text" class="c-label">reastaurtant adres</label>
+                            <input type="text" name="adres1" placeholder="bezorger plaatsnaam" class="adres1" />
+                            <label for="text" class="c-label">bezorgadres</label>
+                            <input type="text" name="adres2" placeholder="bezorgadres" class="adres2" /> </div>
+                        <div class="c-signup__field c-signup__field--fill">
+                            <div class="c-signup__button">
+                                <button class="fetchingBtn">Bekijk afstand en route tussen 2 locaties</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <h4>Geo-location - Admin locatie check</h4>
+                        <div class="c-signup__field c-signup__field--fill">
+                            <label for="text" class="c-label">Custom bezorgadres</label>
+                            <input type="text" name="adres1" placeholder="bezorger plaatsnaam" class="adres3" /> </div>
+                        <div class="c-signup__field c-signup__field--fill">
+                            <div class="c-signup__button">
+                                <button class="fetchingBtn2">Bekijk afstand en route vanaf huidig adres</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <h4  class="panel adresstitle" id="object">totaal bezorgers in omloop</h4>
+                        <ul>
+                            <li>Totaal aantal bezorgers: <span class="counter"></span></li>
+                        </ul>
+                    </div>
+                    <div class="block">
+                        <h4 class="panel">Admin pannel voor courier/bezorger</h4>
+                        <h5>geef aan of er ruimte is om iets mee te nemen</h5>
+                        <select class="beschikbaarlopendebestellingen">
+                                <option >selecteer bestelling</option>
+                                
+                            </select>
+                            <h5>de ruimte is:</h5>
+                        <ul class="beschikbaarheid">
+                            <li>
+                                <label for="radio1" class="btn btn-sm btn-success">
+                                    <input type="radio" name="beschikbaar" id="radio1" class="beschikbaarheidselectie" value="leeg">leeg <i class="fas fa-thermometer-empty"></i></label>
+                                <label for="radio2" class="btn btn-sm btn-success">
+                                    <input type="radio" name="beschikbaar" id="radio2" checked="checked" class="beschikbaarheidselectie" value="vol">vol <i class="fas fa-thermometer-full"></i></label>
+                            </li>
+                        </ul>
+                        <h5 >Is de bestelling nog actief?</h5>
+                            
+                        <ul class="status">
+                            <li>
+                                <label for="radio1" class="btn btn-sm btn-success">
+                                    <input type="radio" name="actief" id="radio1" class="actiefselectie" value="nee"> nee <i class="fas fa-clipboard-check"></i></label>
+                                <label for="radio2" class="btn btn-sm btn-success">
+                                    <input type="radio" name="actief" id="radio2" checked="checked" class="actiefselectie" value="ja">ja <i class="far fa-clipboard"></i></label>
+                            </li>
+                        </ul>
+                        <div class="c-signup__button">
+                            <button class="bezorgStatusUpdate">Update status bezorging</button>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <h4 class="panel">Admin pannel voor Besteller</h4>
+                        <h5>Privacy ivm aflevering voedselpakketten op uw adres</h5>
+
+                        <ul class="beschikbaarheid">
+                            <li>
+                                <label for="radio1" class="btn btn-sm btn-success">
+                                    <input type="radio" name="privacy" id="radio1" class="privacyselectie" value="leeg">Dit is oke! <i class="fas fa-thumbs-up"></i></label>
+                                <label for="radio2" class="btn btn-sm btn-success">
+                                    <input type="radio" name="privacy" id="radio2" checked="checked" class="privacyselectie" value="vol">Dit wil ik niet <i class="fas fa-thumbs-down"></i></label>
+                            </li>
+                        </ul>
+                        <div class="c-signup__button">
+                            <button class="fetchingBtn2">Update status bezorging</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="statusPanel">
+                    <div>
+                        <div class="resultIcon">
+                            <div> </div>
+                        </div>
+                        <div class="selectionresult">
+                            <h4>Pickup point : <span class="adres"></span> </h4>
+                            <ul class="statusList">
+                                <li><i class="fas fa-road"></i> Afstand: <span class="afstand"></span> KM</li>
+                                <li><i class="far fa-clock"></i> Tijdsduur: <span class="tijd"></span></li>
+                                <li><i class="fas fa-phone"></i> Telefoon bezorger: <span class="telefoon"></span></li>
+                                <li><i class="far fa-clipboard"></i> Actief: <span class="actief"> </span></li>
+                                <li><i class="fas fa-thermometer-empty"></i> Ruimte beschikbaar: <span class="beschikbaar"> </span></li>
+                            </ul>
+                            <div class="c-signup__button">
+                            <button class="navBtn">Navigeer mij naar fooDDrop adres!</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
         </section>
-    </div>
+        </div>
+    </main>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT5lbfVyUI0LqCbhgMJqpsNXcDXqKk2QY"></script>
     <script type="text/javascript" src="js/init.js"></script>
 </body>
 
