@@ -33,41 +33,20 @@ const invoerBtn = document.querySelector('.invoeren');
 //1 MALIG OP de laatste CHILD_ADDED
 // Retrieve new posts as they are added to our database
 
-//Old
-//
-//firebase.database().ref("adressen").on("child_added", implement);
-
-//NEW
-//
 firebase.database().ref("mijnadressen").on("child_added", implement);
 let teller = 0;
 
 function implement(snapshot, prevChildKey) {
     var hetadres = snapshot.val().adres;
     console.log("Het adres is: "+ hetadres );
-    // console.log(newPost);
-    // console.log( prevChildKey);
     teller++;
     checkTotaldrivers(teller);
     myCreativeFunction(snapshot , hetadres);
 }
-//1 MALIG OP de alle VALUE is het SNAPSHOT argument
-// var adressenlijst = firebase.database().ref("adres");
-// s = 1;
-// adressenlijst.child().on("value", implement2);
-// function implement2(snapshot) {
-//    snapshot.forEach(function(data) {
-//         console.log("id is " + data.key + " adres is " + data.val());
-//         //const hetadres = snapshot.val();
-//         console.log("test");
-//        //myCreativeFunction(hetadres);
-//    });
-// }
+
 var query = firebase.database().ref("mijnadressen");
 query.once("value").then(function(snapshot) {
     const arrayIds = [];
-    //const theKey = snapshot.child("-L8336y5iQlEFQXXr2Ro").val().actiefstatus;
-    //console.log("childSnapshot: " + theKey);
     snapshot.forEach(function(childSnapshot) {
         // key will be "ada" the first time and "alan" the second time
         var key = childSnapshot.key;
@@ -86,12 +65,9 @@ query.once("value").then(function(snapshot) {
 
 
 function fillOrderSelection(arrayIds, snapshot) {
-    //console.log("key uit fillOrderSelection"+ key);
-    const bezorgStatusUpdateBtn = document.querySelector(".bezorgStatusUpdate");
-    //const Idbeschikbaarlopendebestellingen = key;
-    const newSnap = snapshot;
-    //const theKey2 = snapshot.child("-L87GMs7ELpgnWJRMEpd").val().actiefstatus;
     
+    const bezorgStatusUpdateBtn = document.querySelector(".bezorgStatusUpdate");
+    const newSnap = snapshot;
     let adresArray = [];
     snapshot.forEach(function(childSnapshot) {
         var eenadres = childSnapshot.val().adres;
@@ -99,7 +75,6 @@ function fillOrderSelection(arrayIds, snapshot) {
         adresArray.push(eenadres);
         
     });
-
 
     let OrderID = 0;
     arrayIds.forEach(function(data) {
@@ -123,22 +98,12 @@ function fillOrderSelection(arrayIds, snapshot) {
         //status actief of inactief
         let actieflopendebestellingen = document.querySelector(".status");
         let statusVal = document.querySelector('input[name="actief"]:checked').value;
-        //let statuslopendebestellingenVal = actieflopendebestellingen.options[actieflopendebestellingen.selectedIndex].value;
-
 
         console.log("selected bestelling "+ beschikbaarlopendebestellingenVal);
         console.log("selected update "+ beschikbarheidVal);
         console.log("selected update "+ statusVal);
 
         let newPostRef = newSnap.child(beschikbaarlopendebestellingenVal);
-        // console.log("object"+ newPostRef);
-        // console.log("id id: "+ newPostRef.key);
-        // console.log("value from key in the Id: "+newPostRef.val().actiefstatus);
-
-        //console.log("updatebestelling "+newSnap.child(event.target.value).val().actiefstatus);
-        //var newPostRef = newSnap.child(event.target.value);
-        
-        /////////!!!!update!!
 
         let mijnUpdate = {
             beschikbaar:beschikbarheidVal,
@@ -150,22 +115,11 @@ function fillOrderSelection(arrayIds, snapshot) {
         }else{
              console.log("geen bestelling geselecteerd!");
         }
-       
-        
-        
     }
-    //beschikbaarlopendebestellingen.options[select.selectedIndex].value = Idbeschikbaarlopendebestellingen;
-    //beschikbaarlopendebestellingen.options[select.selectedIndex].textContent = Idbeschikbaarlopendebestellingen;
-    //console.log(Idbeschikbaarlopendebestellingen);
 }
 
 
 function addingObject(invoerAdres) {
-
-    // const invoerAdres = document.querySelector('.invoeradres').value;
-    // console.log(invoeradres);
-    // firebase.database().ref().child('adressen').push(invoerAdres);
-
     var query = firebase.database().ref("mijnadressen");
     query.once("value").then(function(snapshot) {
         snapshot.forEach(function(childSnapshot) {
@@ -178,31 +132,18 @@ function addingObject(invoerAdres) {
     });
     var newPostRef = query.push();
     newPostRef.set({
-        //L87spaH5tZTsi9MI6Zo:{
         adres: invoerAdres,
         actiefstatus: "ja",
         beschikbaar: "leeg",
         telefoon:"00000000"
-        //}
+       
     });
-    //query.child('mijnadressen').push(invoerAdres);
 }
-// document.querySelector('.testingbtn').addEventListener('click', nieuwObject);
-
-// function nieuwObject() {
-//     //get elements
-//     const invoerAdres = document.querySelector('.invoeradrestest').value;
-//     console.log(invoerAdres);
-//     addingObject(invoerAdres)
-// }
 
 function myCreativeFunction(snapshot, hetadres) {
     console.log("!!" + snapshot.val().adres);
-    // console.log("!!" + snapshot);
     snapshot.forEach(function(childSnapshot) {
-            // key will be "ada" the first time and "alan" the second time
             var key = childSnapshot.key;
-            // childData will be the actual contents of the child
             var status = childSnapshot.val();
             console.log("id is " + key + " status is " + status + " adres is: ");
         });
@@ -229,24 +170,12 @@ function giveValue(){
             bekijkBtn.addEventListener("click", selectVervoer);
     }
 
-
-
-// function afstandCheck(straal, vervoerselectie, beschikbaarheidselectie) {
-//     var selectElement = document.querySelector(".straal");
-//     var straal = selectElement.options[select.selectedIndex].value;
-//     console.log("straal: " + straal + "km");
-//     selectVervoer(vervoerselectie, beschikbaarheidselectie, straal);
-// }
-// var select = document.querySelector(".straal");
-// select.addEventListener('change', afstandCheck);
 invoerBtn.addEventListener('click', nieuwadres);
 
 function nieuwadres(invoeradres) {
-    //get elements  
     const invoerAdres = document.querySelector('.invoeradres').value;
     console.log(invoeradres);
     addingObject(invoerAdres)
-   // firebase.database().ref().child('adressen').push(invoerAdres);
 }
 
 function checkTotaldrivers(teller) {
@@ -258,7 +187,6 @@ var map, infoWindow;
 var directionsService = new google.maps.DirectionsService();
 var directionsDisplay = new google.maps.DirectionsRenderer();
 map = new google.maps.Map(document.getElementById('map'), {
-    //center: {lat: -34.397, lng: 150.644}
     zoom: 10
 });
 var myObject = {
@@ -294,21 +222,17 @@ function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
 }
 navigator.geolocation.getCurrentPosition(succes, error, options);
-//navigator.geolocation.getCurrentPosition(succes, error);
 function currentpos() {
     console.log(window.myCurrentPos.lat);
     console.log(window.myCurrentPos.lng);
 }
-//var onClickHandler = function() {
+
 function handlethis(myObject, myData, pos) {
     calcRoute(myObject, myData);
 }
-//  };
-//}
+
 function calcRoute(myObject, myData) {
     console.log("route aangevraagd!");
-    //var start = document.getElementById('start').value;
-    //var end = document.getElementById('end').value;
     console.log("nieuw" + myData.vertrekpunt);
     console.log("nieuw" + myData.eindpunt);
     var request = {
@@ -324,17 +248,11 @@ function calcRoute(myObject, myData) {
 }
 
 function showInfoDriver(myData, myData2) {
-    
     const TheselectedAdres = document.querySelector('.adresoverzicht input[name="adres"]:checked');
-
     const selectedAdres = TheselectedAdres.getAttribute("data-adres");
     const selectedStatus = TheselectedAdres.getAttribute("data-status");
     const selectedbeschikbaar = TheselectedAdres.getAttribute("data-ruimte");
     const selectedTelefoon = TheselectedAdres.getAttribute("data-telefoon");
-    //if (selectedAdres) {
-            console.log("selected Adres is : "+ selectedAdres);
-      //  }
-
     const dataLijst = document.querySelector('.statusList');
     
     dataLijst.setAttribute('data-afstand', myData.afstand);
@@ -361,8 +279,6 @@ function showInfoDriver(myData, myData2) {
 
 
 document.querySelector('.fetchingBtn').addEventListener('click', getJson);
-//document.querySelector('.fetchingBtnUpdate').addEventListener('click', getJson);
-
 function getJson(myData2) {
     module5.scrollIntoView({ block: "start" });
     console.log("myData2: " + myData2)
@@ -399,12 +315,6 @@ function getJson(myData2) {
         }
         handlethis(myObject, myData);
         showInfoDriver(myData, myData2);
-        //let output = '';
-        // data.forEach(function(dataItem) {
-        //     console.log(dataItem);
-        //     //output += `<li>${dataItem.title}</li>`;
-        // })
-        //document.getElementById('output2').innerHTML = output;
     }).then(function() {}).catch(function(error) {
         console.log(error);
     })
@@ -413,14 +323,10 @@ document.querySelector('.fetchingBtn2').addEventListener('click', getJson2);
 
 function selectVervoer(beschikbaarheidselectie, vervoerselectie, actiefselectie) {
     const vervoerInput = document.querySelectorAll('.vervoerselectie');
-    vervoerInput.forEach(function(newdata) {
-        //console.log(newdata.value);
+    vervoerInput.forEach(function(newdata) { 
         console.log("selectVervoer!!")
         if (newdata.checked) {
-            //console.log("checked!" + newdata.value);
             vervoerselectie = newdata.value;
-            //console.log("checked!" + newdata.value);
-            // getJson2(vervoerselectie);
             selectBeschikbaarheid(beschikbaarheidselectie, vervoerselectie, actiefselectie);
         }
     })
@@ -432,7 +338,6 @@ function selectBeschikbaarheid(beschikbaarheidselectie, vervoerselectie, actiefs
     console.log("selectBeschikbaarheid");
     const beschikbaarheidsInput = document.querySelectorAll('.beschikbaarheidselectie');
     beschikbaarheidsInput.forEach(function(newdata) {
-        //newdata.addEventListener('click', selectBeschikbaarheid);
         if (newdata.checked) {
             console.log("beschikbaarheidscheck: " + newdata.value);
             beschikbaarheidselectie = newdata.value;
@@ -445,7 +350,6 @@ function selectActief(beschikbaarheidselectie, vervoerselectie, actiefselectie) 
     console.log("actiefselectie");
     const actiefheidsInput = document.querySelectorAll('.actiefselectie');
     actiefheidsInput.forEach(function(newdata) {
-        //newdata.addEventListener('click', selectBeschikbaarheid);
         if (newdata.checked) {
             console.log("actiefheidsInput: " + newdata.value);
             actiefselectie = newdata.value;
@@ -453,7 +357,7 @@ function selectActief(beschikbaarheidselectie, vervoerselectie, actiefselectie) 
         }
     })
 }
-//selectBeschikbaarheid();
+
 function getJson2(beschikbaarheidselectie, vervoerselectie, actiefselectie) {
     console.log("actiefselectie: " + actiefselectie);
     console.log("selectieVervoer: " + vervoerselectie);
@@ -476,18 +380,6 @@ function getJson2(beschikbaarheidselectie, vervoerselectie, actiefselectie) {
             actiefselectie: actiefselectie
         }
         getJson(myData2)
-        //handlethis(myObject, myData);
-        // console.log(data.rows[0].elements[0].duration.text);
-        // console.log(data.rows[0].elements[0].distance.value / 1000);
-        // const reistijd = data.rows[0].elements[0].duration.text;
-        // const afstand = data.rows[0].elements[0].distance.value / 1000;
-        // const vertrekpunt = data.origin_addresses[0];
-        // const eindpunt = data.destination_addresses[0];
-        // const myData ={
-        //  vertrekpunt:vertrekpunt,
-        //  eindpunt:eindpunt
-        // }
-        // handlethis(myObject, myData);
     }).then(function() {}).catch(function(error) {
         console.log(error);
     })
